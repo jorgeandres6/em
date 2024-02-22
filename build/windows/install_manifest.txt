@@ -1,0 +1,12 @@
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/icudtl.dat
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/flutter_windows.dll
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/flutter_assets/AssetManifest.json
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/flutter_assets/AssetManifest.smcbin
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/flutter_assets/FontManifest.json
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/flutter_assets/images/logo.png
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/flutter_assets/kernel_blob.bin
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/flutter_assets/NOTICES
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/flutter_assets/NOTICES.Z
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag

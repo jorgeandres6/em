@@ -1,0 +1,28 @@
+^C:\USERS\ECTO1\DOCUMENTS\PROYECTOS\PLASTIC MP\APP\ECOMARKET\BUILD\WINDOWS\CMAKEFILES\937FC0CD1A64774D5AB51FE6CAF00EC4\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\src\flutter_windows_3.10.1-stable\flutter "PROJECT_DIR=C:\Users\ecto1\Documents\Proyectos\Plastic MP\App\ecomarket" FLUTTER_ROOT=C:\src\flutter_windows_3.10.1-stable\flutter "FLUTTER_EPHEMERAL_DIR=C:\Users\ecto1\Documents\Proyectos\Plastic MP\App\ecomarket\windows\flutter\ephemeral" "PROJECT_DIR=C:\Users\ecto1\Documents\Proyectos\Plastic MP\App\ecomarket" "FLUTTER_TARGET=C:\Users\ecto1\Documents\Proyectos\Plastic MP\App\ecomarket\lib\main.dart" DART_DEFINES=RkxVVFRFUl9XRUJfQVVUT19ERVRFQ1Q9dHJ1ZQ==,RkxVVFRFUl9XRUJfQ0FOVkFTS0lUX1VSTD1odHRwczovL3d3dy5nc3RhdGljLmNvbS9mbHV0dGVyLWNhbnZhc2tpdC9iNGZiMTEyMTRkZDJkZGE2Y2UwMTJkZDk4ZWE0OThlOWU4YjkxMjYyLw== DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false "PACKAGE_CONFIG=C:\Users\ecto1\Documents\Proyectos\Plastic MP\App\ecomarket\.dart_tool\package_config.json" C:/src/flutter_windows_3.10.1-stable/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ECTO1\DOCUMENTS\PROYECTOS\PLASTIC MP\APP\ECOMARKET\BUILD\WINDOWS\CMAKEFILES\A54EE1A6F7428163DD80F43E56143150\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ECTO1\DOCUMENTS\PROYECTOS\PLASTIC MP\APP\ECOMARKET\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/windows" "-BC:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows" --check-stamp-file "C:/Users/ecto1/Documents/Proyectos/Plastic MP/App/ecomarket/build/windows/flutter/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

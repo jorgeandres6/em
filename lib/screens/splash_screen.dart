@@ -1,4 +1,4 @@
-import 'package:ecomarket/screens/home.dart';
+import 'package:ecomarket/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,8 +17,8 @@ class _SplashScreenState extends State<SplashScreen>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const MyHomePage(title: "Titulo")));
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (_) => const Login()));
     });
   }
 
@@ -32,33 +32,27 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          colors: [Colors.blue, Colors.purple],
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-        )),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(
-                Icons.edit,
-                size: 80,
-                color: Colors.white,
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Flutter Tips",
-                style: TextStyle(
-                  fontStyle: FontStyle.italic,
-                  color: Colors.white,
-                  fontSize: 32,
-                ),
-              )
-            ]),
-      ),
-    );
+        body: Container(
+      width: double.infinity,
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+        colors: [
+          Color.fromARGB(255, 8, 8, 164),
+          Color.fromARGB(255, 6, 149, 18)
+        ],
+        begin: Alignment.topRight,
+        end: Alignment.bottomLeft,
+      )),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        const SizedBox(
+          height: 200,
+        ),
+        Image.asset(
+          'images/logo.png',
+          height: 400,
+          width: 450,
+        ),
+      ]),
+    ));
   }
 }

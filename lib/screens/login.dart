@@ -1,3 +1,4 @@
+import 'package:ecomarket/screens/registro.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -151,6 +152,9 @@ class Login extends StatelessWidget {
                       height: 20,
                     ),
                     GestureDetector(
+                      onTap: () {
+                        _navigateToNextScreen(context);
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -172,5 +176,10 @@ class Login extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _navigateToNextScreen(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const Registro()));
   }
 }

@@ -44,6 +44,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flip_card",
+      "rootUri": "file:///C:/Users/ecto1/AppData/Local/Pub/Cache/hosted/pub.dev/flip_card-0.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///C:/src/flutter_windows_3.10.1-stable/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -60,6 +66,12 @@
       "rootUri": "file:///C:/src/flutter_windows_3.10.1-stable/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "google_nav_bar",
+      "rootUri": "file:///C:/Users/ecto1/AppData/Local/Pub/Cache/hosted/pub.dev/google_nav_bar-5.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "js",
@@ -152,7 +164,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-02-26T01:07:10.507473Z",
+  "generated": "2024-02-27T04:14:51.070001Z",
   "generator": "pub",
   "generatorVersion": "3.0.1"
 }

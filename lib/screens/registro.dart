@@ -56,18 +56,7 @@ class _RegistroState extends State<Registro> {
               const SizedBox(
                 height: 30,
               ),
-              /* const Text(
-                "REGRISTRO",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 10,
-              ), */
               Container(
-                // height: 700,
                 width: 320,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 255, 255, 255),

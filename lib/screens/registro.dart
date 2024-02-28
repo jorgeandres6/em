@@ -27,7 +27,7 @@ class _RegistroState extends State<Registro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /* appBar: AppBar(
         leading: const BackButton(
           color: Colors.white,
         ),
@@ -38,7 +38,7 @@ class _RegistroState extends State<Registro> {
                 fontWeight: FontWeight.bold)),
         backgroundColor: const Color.fromARGB(255, 34, 33, 91),
         centerTitle: true,
-      ),
+      ), */
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,

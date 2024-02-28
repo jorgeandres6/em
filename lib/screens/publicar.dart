@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 
 class Publicar extends StatefulWidget {
   const Publicar({super.key});
@@ -9,25 +12,19 @@ class Publicar extends StatefulWidget {
 
 class _PublicarState extends State<Publicar> {
   final List<String> _locations = [
-    "Banco Pichincha",
-    "Produbanco",
-    "Banco Internacional",
-    "Banco Guayaquil",
-    "Banco Bolivariano",
-    "BIESS"
+    "Entrega a domicilio",
+    "Recogida el el lugar",
+    "A convenir con el comprador",
   ];
   String? _selectedLocation;
 
-  final List<String> _cuenta = [
-    "Ahorros",
-    "Corriente",
-  ];
-  String? _selectedCuenta;
+  FilePickerResult? filePickerResult;
+  File? pickedFile;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /* appBar: AppBar(
         leading: const BackButton(
           color: Colors.white,
         ),
@@ -38,10 +35,11 @@ class _PublicarState extends State<Publicar> {
                 fontWeight: FontWeight.bold)),
         backgroundColor: const Color.fromARGB(255, 34, 33, 91),
         centerTitle: true,
-      ),
+      ), */
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
@@ -80,10 +78,9 @@ class _PublicarState extends State<Publicar> {
                       height: 20,
                     ),
                     const Text(
-                      "Por favor, ingrese sus datos",
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
+                      "Publicación de nuevo producto",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       height: 10,
@@ -92,77 +89,23 @@ class _PublicarState extends State<Publicar> {
                       width: 250,
                       child: const TextField(
                         decoration: InputDecoration(
-                          labelText: "Nombre",
+                          labelText: "Dirección donde se ubica el producto",
                         ),
                       ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          labelText: "Apellido",
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
-                          labelText: "Celular",
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          labelText: "Dirección",
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration:
-                            InputDecoration(labelText: "Correo electrónico"),
-                      ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(labelText: "Contraseña"),
-                      ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        obscureText: true,
-                        decoration:
-                            InputDecoration(labelText: "Repetir contraseña"),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
                     ),
                     Container(
                       width: 250,
                       child: const TextField(
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
-                            labelText: "Número de cuenta bancaria"),
+                            labelText: "Cantidad del producto en kilogramos"),
                       ),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
                     DropdownButton(
-                      hint: const Text('Elija el banco'),
+                      hint: const Text('Tipo de entrega'),
                       value: _selectedLocation,
                       onChanged: (newValue) {
                         setState(() {
@@ -179,20 +122,44 @@ class _PublicarState extends State<Publicar> {
                     const SizedBox(
                       height: 10,
                     ),
-                    DropdownButton(
-                      hint: const Text('Elija el tipo de cuenta'),
-                      value: _selectedCuenta,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _selectedCuenta = newValue;
-                        });
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    GestureDetector(
+                      onTap: () async {
+                        final result = await FilePicker.platform.pickFiles();
+                        if (result == null) {
+                          return;
+                        } else {
+                          final file = result.files.first;
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(file.path!)));
+                        }
                       },
-                      items: _cuenta.map((cuenta) {
-                        return DropdownMenuItem(
-                          value: cuenta,
-                          child: Text(cuenta),
-                        );
-                      }).toList(),
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 250,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            gradient: const LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Color(0XFF8A2387),
+                                  Color(0XFFE94057),
+                                  Color(0XFFF27121)
+                                ])),
+                        child: const Padding(
+                          padding: EdgeInsets.all(12.0),
+                          child: Text(
+                            "Cargar fotografía del producto",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
                     ),
                     const SizedBox(
                       height: 20,
@@ -220,7 +187,7 @@ class _PublicarState extends State<Publicar> {
                   child: const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text(
-                      "Registrarse",
+                      "Publicar",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,

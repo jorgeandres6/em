@@ -20,7 +20,7 @@ class _CategoriasState extends State<Categorias> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBody: true,
-      appBar: AppBar(
+      /* appBar: AppBar(
         leading: const BackButton(
           color: Colors.white,
         ),
@@ -83,7 +83,7 @@ class _CategoriasState extends State<Categorias> {
             ), */
           ),
         ),
-      ),
+      ), */
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,

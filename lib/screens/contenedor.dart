@@ -3,6 +3,8 @@ import 'package:ecomarket/screens/categorias.dart';
 import 'package:ecomarket/screens/compra_venta.dart';
 import 'package:ecomarket/screens/home.dart';
 import 'package:ecomarket/screens/login.dart';
+import 'package:ecomarket/screens/perfil.dart';
+import 'package:ecomarket/screens/publicaciones.dart';
 import 'package:ecomarket/screens/publicar.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:ecomarket/screens/registro.dart';
@@ -22,10 +24,8 @@ class _ContenedorState extends State<Contenedor> {
   int _currentIndex = 0;
   final _pageOprtions = const [
     Publicar(),
-    CompraVenta(),
-    MyHomePage(
-      title: "Hola",
-    ),
+    Perfil(),
+    Publicaciones(),
     Registro()
   ];
 

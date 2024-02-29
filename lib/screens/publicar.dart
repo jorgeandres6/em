@@ -139,6 +139,7 @@ class _PublicarState extends State<Publicar> {
                       child: Container(
                         alignment: Alignment.center,
                         width: 250,
+                        height: 250,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
                             gradient: const LinearGradient(
@@ -149,14 +150,31 @@ class _PublicarState extends State<Publicar> {
                                   Color(0XFFE94057),
                                   Color(0XFFF27121)
                                 ])),
-                        child: const Padding(
-                          padding: EdgeInsets.all(12.0),
-                          child: Text(
-                            "Cargar fotografía del producto",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(40),
+                                border: Border.all(color: Colors.white)),
+                            child: const Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.add_a_photo,
+                                  color: Colors.white,
+                                  size: 60,
+                                ),
+                                Text(
+                                  "Cargar fotografía del producto",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

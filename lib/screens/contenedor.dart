@@ -45,6 +45,14 @@ class _ContenedorState extends State<Contenedor> {
                   fontWeight: FontWeight.bold)),
           backgroundColor: const Color.fromARGB(255, 34, 33, 91),
           centerTitle: true,
+          /* bottom: const TabBar(tabs: [
+            Tab(
+              icon: Icon(Icons.home),
+            ),
+            Tab(
+              icon: Icon(Icons.settings),
+            )
+          ]), */
         ),
         bottomNavigationBar: ConstrainedBox(
           constraints: BoxConstraints.tightFor(

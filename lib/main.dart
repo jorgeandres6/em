@@ -2,6 +2,7 @@ import 'package:ecomarket/screens/categorias.dart';
 import 'package:ecomarket/screens/compra_venta.dart';
 import 'package:ecomarket/screens/contenedor.dart';
 import 'package:ecomarket/screens/login.dart';
+import 'package:ecomarket/screens/publicacion.dart';
 import 'package:ecomarket/screens/registro.dart';
 import 'package:ecomarket/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: const Contenedor(),
+      home: const Publicacion(),
     );
   }
 }

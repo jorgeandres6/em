@@ -1,3 +1,4 @@
+import 'package:ecomarket/screens/contenedor.dart';
 import 'package:ecomarket/screens/registro.dart';
 import 'package:flutter/material.dart';
 
@@ -72,7 +73,7 @@ class CompraVenta extends StatelessWidget {
 
   void _navigateToNextScreen(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const Registro()));
+        .push(MaterialPageRoute(builder: (context) => const Contenedor()));
   }
 }
 

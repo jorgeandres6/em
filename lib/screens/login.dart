@@ -1,3 +1,4 @@
+import 'package:ecomarket/screens/compra_venta.dart';
 import 'package:ecomarket/screens/registro.dart';
 import 'package:flutter/material.dart';
 
@@ -103,6 +104,9 @@ class Login extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
+                      onTap: () {
+                        _navigateToNextScreen(context);
+                      },
                       child: Container(
                         alignment: Alignment.center,
                         width: 250,
@@ -180,6 +184,6 @@ class Login extends StatelessWidget {
 
   void _navigateToNextScreen(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const Registro()));
+        .push(MaterialPageRoute(builder: (context) => const CompraVenta()));
   }
 }

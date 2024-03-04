@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:ecomarket/screens/publicacion.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:ecomarket/screens/registro.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class _PublicacionesState extends State<Publicaciones> {
               ),
               GestureDetector(
                 onTap: () {
-                  _navigateToNextScreen(context);
+                  _navigateToPublicacion(context);
                 },
                 child: const CardBoton(
                   titulo: "Botellas transparentes",
@@ -64,6 +65,11 @@ class _PublicacionesState extends State<Publicaciones> {
   void _navigateToNextScreen(BuildContext context) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const Registro()));
+  }
+
+  void _navigateToPublicacion(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const Publicacion()));
   }
 
   double flip(angle) {

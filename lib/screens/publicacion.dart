@@ -4,6 +4,8 @@ import 'package:ecomarket/screens/compra_venta.dart';
 import 'package:ecomarket/screens/home.dart';
 import 'package:ecomarket/screens/login.dart';
 import 'package:ecomarket/screens/perfil.dart';
+import 'package:ecomarket/screens/publicacion_data.dart';
+import 'package:ecomarket/screens/publicacion_ofertas.dart';
 import 'package:ecomarket/screens/publicaciones.dart';
 import 'package:ecomarket/screens/publicar.dart';
 import 'package:flip_card/flip_card.dart';
@@ -56,60 +58,8 @@ class _PublicacionState extends State<Publicacion> {
               )
             ]),
           ),
-          /* bottomNavigationBar: ConstrainedBox(
-            constraints: BoxConstraints.tightFor(
-                width: MediaQuery.of(context).size.width - 50),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(24),
-                child: GNav(
-                  //duration: const Duration(microseconds: 600),
-                  //tabBorderRadius: 10,
-                  curve: Curves.elasticIn,
-                  //gap: 8,
-                  onTabChange: (index) {
-                    setState(() {
-                      _currentIndex = index;
-                    });
-                  },
-                  backgroundColor: Colors.grey,
-                  color: Colors.white,
-                  activeColor: Colors.white,
-                  tabBackgroundColor: Colors.grey.shade800,
-                  padding: const EdgeInsets.all(10),
-                  tabs: const [
-                    GButton(
-                      icon: Icons.home,
-                      //text: "Inicio",
-                    ),
-                    GButton(
-                      icon: Icons.account_circle,
-                      //text: "Perfil",
-                    ),
-                    GButton(
-                      icon: Icons.view_list,
-                      //text: "Publicaciones",
-                    ),
-                    GButton(
-                      icon: Icons.notifications,
-                      //text: "Notificaciones",
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ), */
-          //body: _pageOprtions[_currentIndex]),
-          body: TabBarView(
-            children: [
-              Container(
-                color: Colors.amber,
-              ),
-              Container(
-                color: Colors.blue,
-              )
-            ],
+          body: const TabBarView(
+            children: [PublicacionData(), PublicacionOfertas()],
           ),
         ));
   }

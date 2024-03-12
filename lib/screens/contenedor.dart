@@ -26,12 +26,12 @@ class _ContenedorState extends State<Contenedor> {
   double angle1 = 0;
   int _currentIndex = 0;
   final _pageOprtions = const [
-    Publicar(),
+    Categorias(),
     Perfil(
       appbarV: false,
     ),
     Publicaciones(),
-    Publicar()
+    Categorias()
   ];
 
   final _pageOprtions2 = const [

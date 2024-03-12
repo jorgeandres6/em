@@ -25,7 +25,10 @@ class _PublicacionState extends State<Publicacion> {
   double angle1 = 0;
   int _currentIndex = 0;
   final _pageOprtions = const [
-    Publicar(),
+    Publicar(
+      categoria: "Prueba",
+      imagen: "",
+    ),
     Perfil(
       appbarV: false,
     ),

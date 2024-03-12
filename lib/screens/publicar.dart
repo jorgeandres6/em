@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 
 class Publicar extends StatefulWidget {
-  const Publicar({super.key});
+  const Publicar({super.key, required this.categoria, required this.imagen});
+
+  final String categoria;
+  final String imagen;
 
   @override
   State<Publicar> createState() => _PublicarState();
@@ -24,6 +27,18 @@ class _PublicarState extends State<Publicar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: const BackButton(
+          color: Colors.white,
+        ),
+        title: const Text("Publicación de nuevo producto",
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold)),
+        backgroundColor: const Color.fromARGB(255, 13, 40, 53),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -55,8 +70,13 @@ class _PublicarState extends State<Publicar> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Text(
+                    /* const Text(
                       "Publicación de nuevo producto",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ), */
+                    Text(
+                      widget.categoria,
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -100,7 +120,31 @@ class _PublicarState extends State<Publicar> {
                     const SizedBox(
                       height: 10,
                     ),
-                    const SizedBox(
+                    Container(
+                      alignment: Alignment.center,
+                      width: 250,
+                      height: 250,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Color.fromARGB(255, 13, 40, 53),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40),
+                              border: Border.all(color: Colors.white)),
+                          child: ClipRRect(
+                            child: Image(
+                              image: AssetImage(widget.imagen),
+                              //fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    /* const SizedBox(
                       height: 20,
                     ),
                     GestureDetector(
@@ -158,7 +202,7 @@ class _PublicarState extends State<Publicar> {
                           ),
                         ),
                       ),
-                    ),
+                    ), */
                     const SizedBox(
                       height: 20,
                     ),

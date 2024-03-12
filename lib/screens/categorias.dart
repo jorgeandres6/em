@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:ecomarket/screens/publicar.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:ecomarket/screens/registro.dart';
 import 'package:flutter/material.dart';
@@ -23,14 +24,22 @@ class _CategoriasState extends State<Categorias> {
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
-          //decoration: BoxDecoration(color: Color(0xFF4FB1E0)),
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                Color(0xFFFFFFFF),
+                //Color(0xFFa3d5ee),
+                Color.fromARGB(255, 13, 40, 53),
+              ])),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             //crossAxisAlignment: CrossAxisAlignment.center,
 
             children: [
               const SizedBox(
-                height: 30,
+                height: 10,
               ),
               FlipCard(
                 direction: FlipDirection.HORIZONTAL,
@@ -44,12 +53,13 @@ class _CategoriasState extends State<Categorias> {
                     desc:
                         "Solo botellas de plástico transparentes sin ningún color",
                     voidCallback: () {
-                      _navigateToNextScreen(context);
+                      _navigateToNextScreen(context, "Botellas transparentes",
+                          "images/transparentes.jpg");
                     }),
               ),
-              const SizedBox(
-                height: 30,
-              ),
+              /*  const SizedBox(
+                height: 20,
+              ), */
               FlipCard(
                 direction: FlipDirection.HORIZONTAL,
                 side: CardSide.FRONT,
@@ -61,12 +71,13 @@ class _CategoriasState extends State<Categorias> {
                     titulo: "Botellas de color",
                     desc: "Botellas de plástico de uno o varios colores",
                     voidCallback: () {
-                      _navigateToNextScreen(context);
+                      _navigateToNextScreen(
+                          context, "Botellas de color", "images/color.jpg");
                     }),
               ),
-              const SizedBox(
-                height: 30,
-              ),
+              /* const SizedBox(
+                height: 20,
+              ), */
               FlipCard(
                 direction: FlipDirection.HORIZONTAL,
                 side: CardSide.FRONT,
@@ -79,12 +90,13 @@ class _CategoriasState extends State<Categorias> {
                     desc:
                         "Botellas de plástico de colores y transparentes mezcladas",
                     voidCallback: () {
-                      _navigateToNextScreen(context);
+                      _navigateToNextScreen(
+                          context, "Botellas mezcladas", "images/mezcla.jpg");
                     }),
               ),
-              const SizedBox(
-                height: 30,
-              ),
+              /*  const SizedBox(
+                height: 20,
+              ), */
               FlipCard(
                 direction: FlipDirection.HORIZONTAL,
                 side: CardSide.FRONT,
@@ -96,11 +108,12 @@ class _CategoriasState extends State<Categorias> {
                     titulo: "Tapas",
                     desc: "Tapas plásticas de botellas",
                     voidCallback: () {
-                      _navigateToNextScreen(context);
+                      _navigateToNextScreen(
+                          context, "Tapas", "images/tapas.jpg");
                     }),
               ),
               const SizedBox(
-                height: 30,
+                height: 50,
               ),
             ],
           ),
@@ -109,9 +122,13 @@ class _CategoriasState extends State<Categorias> {
     );
   }
 
-  void _navigateToNextScreen(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const Registro()));
+  void _navigateToNextScreen(
+      BuildContext context, String contexto, String imagen) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => Publicar(
+              categoria: contexto,
+              imagen: imagen,
+            )));
   }
 
   double flip(angle) {
@@ -136,14 +153,14 @@ class BackCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height / 4,
         child: Padding(
           padding: const EdgeInsets.all(5),
           child: Card(
-            color: const Color.fromARGB(255, 19, 9, 159),
+            color: const Color.fromARGB(255, 13, 40, 53),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             child: Column(
@@ -171,7 +188,11 @@ class BackCard extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                    onPressed: voidCallback, child: const Text("Publicar"))
+                    onPressed: voidCallback,
+                    child: const Text(
+                      "Publicar",
+                      style: TextStyle(color: Color.fromARGB(255, 13, 40, 53)),
+                    ))
               ],
             ),
           ),
@@ -180,10 +201,14 @@ class BackCard extends StatelessWidget {
     );
   }
 
-  void _navigateToNextScreen(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const Registro()));
-  }
+  /* void _navigateToNextScreen(
+      BuildContext context, String contexto, String imagen) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => Publicar(
+              categoria: contexto,
+              imagen: imagen,
+            )));
+  } */
 }
 
 class CardBoton extends StatelessWidget {
@@ -196,11 +221,11 @@ class CardBoton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height / 4,
+      height: MediaQuery.of(context).size.height / 3.5,
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: Card(
-          color: const Color.fromARGB(170, 255, 255, 255),
+          color: const Color.fromARGB(137, 13, 40, 53),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: ClipRRect(
@@ -216,13 +241,15 @@ class CardBoton extends StatelessWidget {
                   ),
                 ),
                 Container(
-                    //padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Text(
-                  titulo,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 20),
-                )),
+                      titulo,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white),
+                    )),
               ],
             ),
           ),

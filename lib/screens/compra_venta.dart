@@ -176,12 +176,12 @@ class CompraVenta extends StatelessWidget {
             )));
   }
 
-  void _navigateToPerfil(BuildContext context) {
+  /*  void _navigateToPerfil(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => const Perfil(
               appbarV: true,
             )));
-  }
+  } */
 }
 
 class CardBoton extends StatelessWidget {
@@ -193,7 +193,7 @@ class CardBoton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height / 4,

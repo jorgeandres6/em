@@ -20,76 +20,14 @@ class _CategoriasState extends State<Categorias> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBody: true,
-      /* appBar: AppBar(
-        leading: const BackButton(
-          color: Colors.white,
-        ),
-        title: const Text("Categorias",
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold)),
-        backgroundColor: const Color.fromARGB(255, 34, 33, 91),
-        centerTitle: true,
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(24),
-          child: GNav(
-            //duration: const Duration(microseconds: 600),
-            //tabBorderRadius: 10,
-            curve: Curves.elasticIn,
-            gap: 8,
-            onTabChange: (index) {
-              print(index);
-            },
-            backgroundColor: Colors.grey,
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: Colors.grey.shade800,
-            padding: const EdgeInsets.all(10),
-            tabs: const [
-              GButton(
-                icon: Icons.home,
-                text: "Inicio",
-              ),
-              GButton(
-                icon: Icons.account_circle,
-                text: "Perfil",
-              ),
-              GButton(
-                icon: Icons.view_list,
-                text: "Publicaciones",
-              ),
-              GButton(
-                icon: Icons.notifications,
-                text: "Notificaciones",
-              ),
-            ],
-            /*  bottom: false,
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              margin: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Colors.blueGrey, borderRadius: BorderRadius.circular(24)),
-              child: const Row(children: [
-                SizedBox(
-                  height: 36,
-                  width: 36,
-                  // child:
-                )
-              ]),
-            ), */
-          ),
-        ),
-      ), */
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
+          //decoration: BoxDecoration(color: Color(0xFF4FB1E0)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             //crossAxisAlignment: CrossAxisAlignment.center,
+
             children: [
               const SizedBox(
                 height: 30,
@@ -197,42 +135,45 @@ class BackCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height / 4,
-      child: Padding(
-        padding: const EdgeInsets.all(5),
-        child: Card(
-          color: const Color.fromARGB(255, 19, 9, 159),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                titulo,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: Colors.white),
-              ),
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height / 12,
+    return Padding(
+      padding: EdgeInsets.all(10),
+      child: SizedBox(
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height / 4,
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Card(
+            color: const Color.fromARGB(255, 19, 9, 159),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  titulo,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      color: Colors.white),
                 ),
-                child: SingleChildScrollView(
-                  child: Text(desc,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                          color: Colors.white)),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: MediaQuery.of(context).size.height / 12,
+                  ),
+                  child: SingleChildScrollView(
+                    child: Text(desc,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.white)),
+                  ),
                 ),
-              ),
-              ElevatedButton(
-                  onPressed: voidCallback, child: const Text("Publicar"))
-            ],
+                ElevatedButton(
+                    onPressed: voidCallback, child: const Text("Publicar"))
+              ],
+            ),
           ),
         ),
       ),

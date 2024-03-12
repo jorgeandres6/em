@@ -26,7 +26,9 @@ class _PublicacionState extends State<Publicacion> {
   int _currentIndex = 0;
   final _pageOprtions = const [
     Publicar(),
-    Perfil(),
+    Perfil(
+      appbarV: false,
+    ),
     Publicaciones(),
     Registro()
   ];

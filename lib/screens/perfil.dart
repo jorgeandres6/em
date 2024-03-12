@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Perfil extends StatefulWidget {
-  const Perfil({super.key});
+  const Perfil({super.key, required this.appbarV});
+
+  final bool appbarV;
 
   @override
   State<Perfil> createState() => _PerfilState();
@@ -34,17 +36,32 @@ class _PerfilState extends State<Perfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: widget.appbarV
+          ? AppBar(
+              leading: const BackButton(
+                color: Colors.white,
+              ),
+              title: const Text("Categorias",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold)),
+              backgroundColor: const Color.fromARGB(255, 13, 40, 53),
+              centerTitle: true,
+            )
+          : null,
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                   colors: [
-                Color.fromARGB(255, 9, 16, 69),
-                Color.fromARGB(255, 34, 33, 91),
+                Color(0xFFFFFFFF),
+                //Color(0xFFa3d5ee),
+                Color.fromARGB(255, 13, 40, 53),
               ])),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,20 +87,20 @@ class _PerfilState extends State<Perfil> {
                       Text(
                         "Juan Mendoza",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 30,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "1774829467",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 15,
                         ),
                       ),
                       Text(
                         "juanito@gmail.com",
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: TextStyle(color: Colors.black, fontSize: 15),
                       )
                     ],
                   )
@@ -195,14 +212,16 @@ class _PerfilState extends State<Perfil> {
                   width: 250,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      gradient: const LinearGradient(
+                      color: Color.fromARGB(255, 13, 40, 53)
+                      /* gradient: const LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                           colors: [
                             Color(0XFF8A2387),
                             Color(0XFFE94057),
                             Color(0XFFF27121)
-                          ])),
+                          ]) */
+                      ),
                   child: const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text(

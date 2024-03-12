@@ -26,11 +26,12 @@ class _PublicacionesState extends State<Publicaciones> {
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
             gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
                 colors: [
-              Color.fromARGB(255, 9, 16, 69),
-              Color.fromARGB(255, 34, 33, 91),
+              Color(0xFFFFFFFF),
+              //Color(0xFFa3d5ee),
+              Color.fromARGB(255, 13, 40, 53),
             ])),
         child: SingleChildScrollView(
           child: Column(

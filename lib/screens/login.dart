@@ -10,16 +10,16 @@ class Login extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery.of(context).size.height,
+          //height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                   colors: [
-                Color(0xFF8A2387),
-                Color(0xFFE94057),
-                Color(0xFFF27121),
+                Color(0xFFFFFFFF),
+                //Color(0xFFa3d5ee),
+                Color.fromARGB(255, 13, 40, 53),
               ])),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,7 +43,7 @@ class Login extends StatelessWidget {
                 height: 30,
               ), */
               Container(
-                height: 520,
+                //height: 520,
                 width: 320,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 255, 255, 255),
@@ -97,7 +97,7 @@ class Login extends StatelessWidget {
                           children: [
                             Text(
                               "Olvidé mi contraseña",
-                              style: TextStyle(color: Colors.orangeAccent[700]),
+                              style: TextStyle(color: Color(0xFF4FB1E0)),
                             )
                           ],
                         ),
@@ -112,14 +112,16 @@ class Login extends StatelessWidget {
                         width: 250,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            gradient: const LinearGradient(
+                            color: const Color(0xFF4FB1E0)
+                            /*  gradient: const LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
                                 colors: [
                                   Color(0XFF8A2387),
                                   Color(0XFFE94057),
                                   Color(0XFFF27121)
-                                ])),
+                                ]) */
+                            ),
                         child: const Padding(
                           padding: EdgeInsets.all(12.0),
                           child: Text(
@@ -147,7 +149,7 @@ class Login extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.facebook,
-                          color: Colors.orangeAccent[700],
+                          color: Color(0xFF4FB1E0),
                           size: 60,
                         ),
                       ],
@@ -157,7 +159,7 @@ class Login extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        _navigateToNextScreen(context);
+                        _navigateToRegistro(context);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -165,16 +167,22 @@ class Login extends StatelessWidget {
                           Text(
                             "Registrate",
                             style: TextStyle(
-                                color: Colors.orangeAccent[700],
+                                color: Color(0xFF4FB1E0),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20),
                           )
                         ],
                       ),
-                    )
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
@@ -185,5 +193,10 @@ class Login extends StatelessWidget {
   void _navigateToNextScreen(BuildContext context) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const CompraVenta()));
+  }
+
+  void _navigateToRegistro(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const Registro()));
   }
 }

@@ -24,29 +24,18 @@ class _PublicarState extends State<Publicar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /* appBar: AppBar(
-        leading: const BackButton(
-          color: Colors.white,
-        ),
-        title: const Text("Registro",
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold)),
-        backgroundColor: const Color.fromARGB(255, 34, 33, 91),
-        centerTitle: true,
-      ), */
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                   colors: [
-                Color.fromARGB(255, 9, 16, 69),
-                Color.fromARGB(255, 34, 33, 91),
+                Color(0xFFFFFFFF),
+                //Color(0xFFa3d5ee),
+                Color.fromARGB(255, 13, 40, 53),
               ])),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,18 +43,7 @@ class _PublicarState extends State<Publicar> {
               const SizedBox(
                 height: 30,
               ),
-              /* const Text(
-                "REGRISTRO",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 10,
-              ), */
               Container(
-                // height: 700,
                 width: 320,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 255, 255, 255),
@@ -141,15 +119,17 @@ class _PublicarState extends State<Publicar> {
                         width: 250,
                         height: 250,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            gradient: const LinearGradient(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Color.fromARGB(255, 13, 40, 53),
+                          /*  gradient: const LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
                                 colors: [
                                   Color(0XFF8A2387),
                                   Color(0XFFE94057),
                                   Color(0XFFF27121)
-                                ])),
+                                ]) */
+                        ),
                         child: Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: Container(
@@ -194,14 +174,16 @@ class _PublicarState extends State<Publicar> {
                   width: 250,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      gradient: const LinearGradient(
+                      color: const Color.fromARGB(255, 13, 40, 53)
+                      /*  gradient: const LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                           colors: [
                             Color(0XFF8A2387),
                             Color(0XFFE94057),
                             Color(0XFFF27121)
-                          ])),
+                          ]) */
+                      ),
                   child: const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text(

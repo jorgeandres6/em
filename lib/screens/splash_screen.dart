@@ -34,15 +34,16 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
         body: Container(
       width: double.infinity,
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
+      decoration: const BoxDecoration(color: Colors.white
+          /* gradient: LinearGradient(
         colors: [
           Color.fromARGB(255, 8, 8, 164),
           Color.fromARGB(255, 6, 149, 18)
         ],
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
-      )),
+      ) */
+          ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         const SizedBox(
           height: 200,
@@ -52,6 +53,13 @@ class _SplashScreenState extends State<SplashScreen>
           height: 400,
           width: 450,
         ),
+        const Text(
+          "Compra y venta de plástico",
+          style: TextStyle(
+              color: Color(0xFFa3d5ee),
+              fontWeight: FontWeight.bold,
+              fontSize: 25),
+        )
       ]),
     ));
   }

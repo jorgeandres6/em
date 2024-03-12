@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:ecomarket/screens/categorias.dart';
 import 'package:ecomarket/screens/compra_venta.dart';
 import 'package:ecomarket/screens/home.dart';
+import 'package:ecomarket/screens/lista_compra.dart';
 import 'package:ecomarket/screens/login.dart';
 import 'package:ecomarket/screens/perfil.dart';
 import 'package:ecomarket/screens/publicaciones.dart';
@@ -12,7 +13,9 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class Contenedor extends StatefulWidget {
-  const Contenedor({super.key});
+  const Contenedor({super.key, required this.venta});
+
+  final bool venta;
 
   @override
   State<Contenedor> createState() => _ContenedorState();
@@ -24,9 +27,20 @@ class _ContenedorState extends State<Contenedor> {
   int _currentIndex = 0;
   final _pageOprtions = const [
     Publicar(),
-    Perfil(),
+    Perfil(
+      appbarV: false,
+    ),
     Publicaciones(),
-    Registro()
+    Publicar()
+  ];
+
+  final _pageOprtions2 = const [
+    ListaCompra(),
+    Perfil(
+      appbarV: false,
+    ),
+    Publicaciones(),
+    ListaCompra()
   ];
 
   @override
@@ -43,7 +57,7 @@ class _ContenedorState extends State<Contenedor> {
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.bold)),
-          backgroundColor: const Color.fromARGB(255, 34, 33, 91),
+          backgroundColor: const Color.fromARGB(255, 13, 40, 53),
           centerTitle: true,
           /* bottom: const TabBar(tabs: [
             Tab(
@@ -98,7 +112,9 @@ class _ContenedorState extends State<Contenedor> {
             ),
           ),
         ),
-        body: _pageOprtions[_currentIndex]);
+        body: widget.venta
+            ? _pageOprtions[_currentIndex]
+            : _pageOprtions2[_currentIndex]);
   }
 
   void _navigateToNextScreen(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -23,6 +23,8 @@ class _PublicarState extends State<Publicar> {
 
   FilePickerResult? filePickerResult;
   File? pickedFile;
+
+  bool _switchValue = true;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class _PublicarState extends State<Publicar> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               Container(
                 width: 320,
@@ -70,15 +72,10 @@ class _PublicarState extends State<Publicar> {
                     const SizedBox(
                       height: 20,
                     ),
-                    /* const Text(
-                      "Publicación de nuevo producto",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ), */
                     Text(
-                      widget.categoria,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      widget.categoria.toUpperCase(),
+                      style: const TextStyle(
+                          fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       height: 10,
@@ -89,14 +86,6 @@ class _PublicarState extends State<Publicar> {
                         decoration: InputDecoration(
                           labelText: "Dirección donde se ubica el producto",
                         ),
-                      ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                            labelText: "Cantidad del producto en kilogramos"),
                       ),
                     ),
                     const SizedBox(
@@ -117,8 +106,79 @@ class _PublicarState extends State<Publicar> {
                         );
                       }).toList(),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                      child: Column(
+                        children: [
+                          const Padding(
+                              padding: EdgeInsets.only(bottom: 10),
+                              child: Text(
+                                "CANTIDAD DE PRODUCTO",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
+                              )),
+                          Container(
+                            //padding: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              /* border: Border.all(
+                                    color:
+                                        const Color.fromARGB(255, 13, 40, 53)) */
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.only(right: 5),
+                                  child: Text(
+                                    "En unidades",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                CupertinoSwitch(
+                                  trackColor: Colors.blue,
+                                  value: _switchValue,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _switchValue = value;
+                                    });
+                                  },
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 5),
+                                  child: Text(
+                                    "En kilogramos",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 250,
+                      child: const TextField(
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(labelText: "Cantidad"),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5),
+                      child: Container(
+                        width: 250,
+                        child: const TextField(
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                              labelText: "Precio total (Opcional)"),
+                        ),
+                      ),
+                    ),
                     const SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     Container(
                       alignment: Alignment.center,
@@ -126,22 +186,20 @@ class _PublicarState extends State<Publicar> {
                       height: 250,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: Color.fromARGB(255, 13, 40, 53),
+                        color: const Color.fromARGB(255, 13, 40, 53),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
-                              border: Border.all(color: Colors.white)),
-                          child: ClipRRect(
-                            child: Image(
-                              image: AssetImage(widget.imagen),
-                              //fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
+                            height: MediaQuery.of(context).size.height,
+                            //alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(widget.imagen),
+                                  fit: BoxFit.fill,
+                                ),
+                                borderRadius: BorderRadius.circular(40),
+                                border: Border.all(color: Colors.white))),
                       ),
                     ),
                     /* const SizedBox(
@@ -212,34 +270,37 @@ class _PublicarState extends State<Publicar> {
               const SizedBox(
                 height: 20,
               ),
-              GestureDetector(
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    shadowColor: Colors.white, elevation: 5),
+                onPressed: () {},
+                child: const Text(
+                  "Publicar",
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 13, 40, 53),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              /* GestureDetector(
                 child: Container(
                   alignment: Alignment.center,
                   width: 250,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: const Color.fromARGB(255, 13, 40, 53)
-                      /*  gradient: const LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [
-                            Color(0XFF8A2387),
-                            Color(0XFFE94057),
-                            Color(0XFFF27121)
-                          ]) */
-                      ),
+                      color: Colors.white),
                   child: const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text(
                       "Publicar",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 13, 40, 53),
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
-              ),
+              ), */
               const SizedBox(
                 height: 20,
               ),

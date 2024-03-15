@@ -112,6 +112,36 @@ class _CategoriasState extends State<Categorias> {
                           context, "Tapas", "images/tapas.jpg");
                     }),
               ),
+              FlipCard(
+                direction: FlipDirection.HORIZONTAL,
+                side: CardSide.FRONT,
+                front: const CardBoton(
+                  titulo: "Botellones",
+                  imagen: "images/botellon.jpg",
+                ),
+                back: BackCard(
+                    titulo: "Botellones",
+                    desc: "Botellones y bidones de plástico",
+                    voidCallback: () {
+                      _navigateToNextScreen(
+                          context, "Botellones", "images/botellon.jpg");
+                    }),
+              ),
+              FlipCard(
+                direction: FlipDirection.HORIZONTAL,
+                side: CardSide.FRONT,
+                front: const CardBoton(
+                  titulo: "Otros",
+                  imagen: "images/otros.jpg",
+                ),
+                back: BackCard(
+                    titulo: "Otros",
+                    desc: "Plásticos en general",
+                    voidCallback: () {
+                      _navigateToNextScreen(
+                          context, "Otros", "images/otros.jpg");
+                    }),
+              ),
               const SizedBox(
                 height: 50,
               ),

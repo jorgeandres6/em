@@ -38,21 +38,12 @@ class _ListaCompraState extends State<ListaCompra> {
             mainAxisAlignment: MainAxisAlignment.center,
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 30,
-              ),
               CardBoton(
                 titulo: "Botellas transparentes",
                 imagen: "images/transparentes.jpg",
                 dir: "Quitumbe",
                 rec: "Acuerdo con el comprador",
                 peso: "250 KG",
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              SizedBox(
-                height: 30,
               ),
               CardBoton(
                 titulo: "Botellas transparentes",
@@ -61,9 +52,6 @@ class _ListaCompraState extends State<ListaCompra> {
                 rec: "Entrega a domicilio",
                 peso: "100 KG",
               ),
-              SizedBox(
-                height: 30,
-              ),
               CardBoton(
                 titulo: "Botellas de color",
                 imagen: "images/color.jpg",
@@ -71,18 +59,12 @@ class _ListaCompraState extends State<ListaCompra> {
                 rec: "Recoger en el punto",
                 peso: "1000 KG",
               ),
-              SizedBox(
-                height: 30,
-              ),
               CardBoton(
                 titulo: "Tapas",
                 imagen: "images/tapas.jpg",
                 dir: "Calderon",
                 rec: "Acuerdo con el comprador",
                 peso: "25 KG",
-              ),
-              SizedBox(
-                height: 30,
               ),
               CardBoton(
                 titulo: "Botellas mezcladas",
@@ -240,6 +222,16 @@ class CardBoton extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                      child: Container(
+                        width: 250,
+                        child: const TextField(
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(labelText: "Oferta"),
+                        ),
+                      ),
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(

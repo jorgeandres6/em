@@ -44,7 +44,7 @@ class _PublicarState extends State<Publicar> {
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          //height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -79,6 +79,20 @@ class _PublicarState extends State<Publicar> {
                     ),
                     const SizedBox(
                       height: 10,
+                    ),
+                    Offstage(
+                      offstage: widget.categoria != "Otros",
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                        child: Container(
+                          width: 250,
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              labelText: "Breve descripción",
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                     Container(
                       width: 250,
@@ -177,92 +191,89 @@ class _PublicarState extends State<Publicar> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      width: 250,
-                      height: 250,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: const Color.fromARGB(255, 13, 40, 53),
-                      ),
+                    Offstage(
+                      offstage: widget.categoria == "Otros",
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
                         child: Container(
-                            height: MediaQuery.of(context).size.height,
-                            //alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(widget.imagen),
-                                  fit: BoxFit.fill,
-                                ),
-                                borderRadius: BorderRadius.circular(40),
-                                border: Border.all(color: Colors.white))),
+                          alignment: Alignment.center,
+                          width: 250,
+                          height: 250,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: const Color.fromARGB(255, 13, 40, 53),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Container(
+                                height: MediaQuery.of(context).size.height,
+                                //alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(widget.imagen),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    borderRadius: BorderRadius.circular(40),
+                                    border: Border.all(color: Colors.white))),
+                          ),
+                        ),
                       ),
                     ),
-                    /* const SizedBox(
-                      height: 20,
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        final result = await FilePicker.platform.pickFiles();
-                        if (result == null) {
-                          return;
-                        } else {
-                          final file = result.files.first;
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(file.path!)));
-                        }
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 250,
-                        height: 250,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Color.fromARGB(255, 13, 40, 53),
-                          /*  gradient: const LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [
-                                  Color(0XFF8A2387),
-                                  Color(0XFFE94057),
-                                  Color(0XFFF27121)
-                                ]) */
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                    Offstage(
+                      offstage: widget.categoria != "Otros",
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                        child: GestureDetector(
+                          onTap: () async {
+                            final result =
+                                await FilePicker.platform.pickFiles();
+                            if (result == null) {
+                              return;
+                            } else {
+                              final file = result.files.first;
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(file.path!)));
+                            }
+                          },
                           child: Container(
                             alignment: Alignment.center,
+                            width: 250,
+                            height: 250,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                                border: Border.all(color: Colors.white)),
-                            child: const Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Icon(
-                                  Icons.add_a_photo,
-                                  color: Colors.white,
-                                  size: 60,
-                                ),
-                                Text(
-                                  "Cargar fotografía del producto",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Color.fromARGB(255, 13, 40, 53),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Container(
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(40),
+                                    border: Border.all(color: Colors.white)),
+                                child: const Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Icon(
+                                      Icons.add_a_photo,
                                       color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                      size: 60,
+                                    ),
+                                    Text(
+                                      "Cargar fotografía del producto",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ), */
-                    const SizedBox(
-                      height: 20,
                     ),
                   ],
                 ),

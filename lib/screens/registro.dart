@@ -1,4 +1,7 @@
+import 'package:ecomarket/screens/login.dart';
 import 'package:flutter/material.dart';
+
+final _formKey = GlobalKey<FormState>();
 
 class Registro extends StatefulWidget {
   const Registro({super.key});
@@ -62,137 +65,195 @@ class _RegistroState extends State<Registro> {
                   color: const Color.fromARGB(255, 255, 255, 255),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Text(
-                      "Por favor, ingrese sus datos",
-                      style: TextStyle(
-                        fontSize: 20,
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        height: 20,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          labelText: "Nombre",
+                      const Text(
+                        "Por favor, ingrese sus datos",
+                        style: TextStyle(
+                          fontSize: 20,
                         ),
                       ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          labelText: "Apellido",
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: 250,
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Por favor llene el campo";
+                            } else {
+                              return null;
+                            }
+                          },
+                          decoration: const InputDecoration(
+                            labelText: "Nombre",
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
-                          labelText: "Celular",
+                      Container(
+                        width: 250,
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Por favor llene el campo";
+                            } else {
+                              return null;
+                            }
+                          },
+                          decoration: const InputDecoration(
+                            labelText: "Apellido",
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          labelText: "Dirección",
+                      Container(
+                        width: 250,
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Por favor llene el campo";
+                            } else {
+                              return null;
+                            }
+                          },
+                          keyboardType: TextInputType.phone,
+                          decoration: const InputDecoration(
+                            labelText: "Celular",
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration:
-                            InputDecoration(labelText: "Correo electrónico"),
+                      Container(
+                        width: 250,
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Por favor llene el campo";
+                            } else {
+                              return null;
+                            }
+                          },
+                          decoration: const InputDecoration(
+                            labelText: "Dirección",
+                          ),
+                        ),
                       ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(labelText: "Contraseña"),
+                      const SizedBox(
+                        height: 10,
                       ),
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        obscureText: true,
-                        decoration:
-                            InputDecoration(labelText: "Repetir contraseña"),
+                      Container(
+                        width: 250,
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Por favor llene el campo";
+                            } else {
+                              return null;
+                            }
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: const InputDecoration(
+                              labelText: "Correo electrónico"),
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: 250,
-                      child: const TextField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                            labelText: "Número de cuenta bancaria"),
+                      Container(
+                        width: 250,
+                        child: TextFormField(
+                          obscureText: true,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Por favor llene el campo";
+                            } else {
+                              return null;
+                            }
+                          },
+                          decoration:
+                              const InputDecoration(labelText: "Contraseña"),
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    DropdownButton(
-                      hint: const Text('Elija el banco'),
-                      value: _selectedLocation,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _selectedLocation = newValue;
-                        });
-                      },
-                      items: _locations.map((location) {
-                        return DropdownMenuItem(
-                          value: location,
-                          child: Text(location),
-                        );
-                      }).toList(),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    DropdownButton(
-                      hint: const Text('Elija el tipo de cuenta'),
-                      value: _selectedCuenta,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _selectedCuenta = newValue;
-                        });
-                      },
-                      items: _cuenta.map((cuenta) {
-                        return DropdownMenuItem(
-                          value: cuenta,
-                          child: Text(cuenta),
-                        );
-                      }).toList(),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                  ],
+                      Container(
+                        width: 250,
+                        child: TextFormField(
+                          obscureText: true,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Por favor llene el campo";
+                            } else {
+                              return null;
+                            }
+                          },
+                          decoration: const InputDecoration(
+                              labelText: "Repetir contraseña"),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: 250,
+                        child: TextFormField(
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(
+                              labelText: "Número de cuenta bancaria"),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      DropdownButton(
+                        hint: const Text('Elija el banco'),
+                        value: _selectedLocation,
+                        onChanged: (newValue) {
+                          setState(() {
+                            _selectedLocation = newValue;
+                          });
+                        },
+                        items: _locations.map((location) {
+                          return DropdownMenuItem(
+                            value: location,
+                            child: Text(location),
+                          );
+                        }).toList(),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      DropdownButton(
+                        hint: const Text('Elija el tipo de cuenta'),
+                        value: _selectedCuenta,
+                        onChanged: (newValue) {
+                          setState(() {
+                            _selectedCuenta = newValue;
+                          });
+                        },
+                        items: _cuenta.map((cuenta) {
+                          return DropdownMenuItem(
+                            value: cuenta,
+                            child: Text(cuenta),
+                          );
+                        }).toList(),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
               GestureDetector(
+                onTap: () {
+                  if (_formKey.currentState!.validate()) {
+                    _navigateToNextScreen(context);
+                  }
+                },
                 child: Container(
                   alignment: Alignment.center,
                   width: 250,
@@ -226,5 +287,10 @@ class _RegistroState extends State<Registro> {
         ),
       ),
     );
+  }
+
+  void _navigateToNextScreen(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const Login()));
   }
 }

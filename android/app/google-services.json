@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "935713876746",
+    "project_id": "greendealec",
+    "storage_bucket": "greendealec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935713876746:android:4c7f723ecb3fcfec6ce8f3",
+        "android_client_info": {
+          "package_name": "com.example.ecomarket"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtehvpYSP7d5uFCb_-6I12ndQ7SooNNEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
